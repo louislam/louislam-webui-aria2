@@ -50,23 +50,19 @@ angular.module('webui.services.utils', ['webui.services.configuration'])
     },
     // saves the key value pair in cookies
     setCookie: function(key, value) {
-      var exdate = new Date();
-      exdate.setDate(exdate.getDate() + 30 * 12);
-      var cvalue = escape(JSON.stringify(value)) + "; expires=" + exdate.toUTCString();
-      document.cookie = key + "=" + cvalue;
+      console.log("Store: " + key);
+      localStorage.setItem(key, JSON.stringify(value));
     },
     // gets a value for a key stored in cookies
     getCookie: function(key) {
-      var chunks = document.cookie.split(";");
-      for (var i = 0; i < chunks.length; i++) {
-        var ckey = chunks[i].substr(0, chunks[i].indexOf("=")).replace(/^\s+|\s+$/g,"");
-        var cvalue = chunks[i].substr(chunks[i].indexOf("=") + 1);
-        if (key == ckey) {
-          return JSON.parse(unescape(cvalue));
-        }
+      var value = localStorage.getItem(key);
+
+      if (value) {
+        return JSON.parse(value);
+      } else {
+        return null;
       }
 
-      return null;
     },
     getFileName: function(path) {
       var seed = path.split(/[/\\]/);
