@@ -22,9 +22,10 @@
 
 .download-name {
   font-weight: bold;
-  font-size: small;
+
   word-wrap: break-word;
 }
+
 .active-download, .waiting-download, .stopped-download, .download {
   cursor: pointer;
   width: 100%;
@@ -33,9 +34,9 @@
 
 /* fix table  layout to break words */
 @media (max-width: 767px) {
-.active-download, .waiting-download, .stopped-download, .download {
-  table-layout: fixed;
-}
+    .active-download, .waiting-download, .stopped-download, .download {
+      table-layout: fixed;
+    }
 }
 
 .download-graph {

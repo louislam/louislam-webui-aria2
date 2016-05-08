@@ -1,0 +1,21 @@
+{
+  "name": "louislam-webui-aria2",
+  "homepage": "https://github.com/louislam/louislam-webui-aria2",
+  "authors": [
+    "Louis Lam"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "vendor"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "^0.5.9"
+  }
+}

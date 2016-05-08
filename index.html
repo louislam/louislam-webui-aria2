@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <!-- {{{ head -->
@@ -11,7 +11,7 @@
 
   <title ng-bind="$root.pageTitle">Aria2 WebUI</title>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/flag-icon.min.css">
 
@@ -19,70 +19,10 @@
   <link rel="stylesheet" href="css/download.css">
   <link rel="stylesheet" href="css/modals.css">
 
-
-  <!-- external javascript dependencies -->
-  <script src="js/libs/jquery-2.1.3.js"></script>
-  <script src="js/libs/lodash.js"></script>
-
-  <script src="js/libs/angular.js"></script>
-
-  <script src="js/libs/angularui-bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" />
 
 
-  <script src="js/libs/jquery.flot.js"></script>
-  <script src="js/libs/jquery.flot.time.js"></script>
-
-  <!-- We do manual resize currently
-  <script src="js/libs/jquery.flot.resize.js"></script>
-  -->
-
-  <!-- webui core -->
-  <script src="js/init.js"></script>
-  <script src="configuration.js"></script>
-
-  <script src="js/directives/chunkbar.js"></script>
-  <script src="js/directives/dgraph.js"></script>
-  <script src="js/directives/fselect.js"></script>
-
-  <script src="js/filters/bytes.js"></script>
-  <script src="js/filters/url.js"></script>
-
-  <script src="js/services/deps.js"></script>
-  <script src="js/services/base64.js"></script>
-  <script src="js/services/utils.js"></script>
-
-  <script src="js/services/modals.js"></script>
-  <script src="js/services/alerts.js"></script>
-
-  <script src="js/services/errors.js"></script>
-
-  <script src="js/services/settings/settings.js"></script>
-  <script src="js/services/settings/filters.js"></script>
-
-  <script src="js/services/rpc/jsoncall.js"></script>
-  <script src="js/services/rpc/sockcall.js"></script>
-  <script src="js/services/rpc/syscall.js"></script>
-  <script src="js/services/rpc/rpc.js"></script>
-  <script src="js/services/rpc/helpers.js"></script>
-
-
-  <script src="js/ctrls/main.js"></script>
-  <script src="js/ctrls/modal.js"></script>
-  <script src="js/ctrls/nav.js"></script>
-  <script src="js/ctrls/alert.js"></script>
-  <script src="js/ctrls/props.js"></script>
-
-
-  <!-- translate -->
-  <script src="js/libs/angular-translate.js"></script>
-  <script src="js/translate/nl_NL.js"></script>
-  <script src="js/translate/en_US.js"></script>
-  <script src="js/translate/th_TH.js"></script>
-  <script src="js/translate/zh_CN.js"></script>
-  <script src="js/translate/pl_PL.js"></script>
-  <script src="js/translate/fr_FR.js"></script>
-  <script src="js/translate/de_DE.js"></script>
-  <script src="js/translate/es_ES.js"></script>
 </head>
 <!-- }}} -->
 
@@ -156,13 +96,7 @@
                 href="#"
                 ng-click="shutDownServer()"><span class="fa fa-fw fa-power-off">&nbsp;</span> {{ 'Shutdown Server' | translate }}</a>
             </li>
-            <!-- not adding remove all as requires many rpc syscalls to finish
-            <li>
-              <a
-                href="#"
-                ng-click="removeAll()"><span class="fa fa-fw fa-fire">&nbsp;</span> Remove All</a>
-            </li>
-            -->
+
           </ul>
         </li>
 
@@ -275,7 +209,6 @@
 
     </div><!--/.nav-collapse -->
   </div>
-</div>
 <!-- }}} -->
 
 <!-- {{{ body -->
@@ -291,9 +224,9 @@
   <!-- }}} -->
 
 <div class="row-fluid">
-  <div ng-class="{'col-md-3': enable.sidebar.show}" ng-show="enable.sidebar.show">
+  <div>
     <!-- {{{ nav side bar -->
-    <div class="well sidebar-nav">
+    <div class="well sidebar-nav" style="display: none;">
 
       <!-- {{{ global statistics -->
       <ul class="nav nav-list" ng-if="enable.sidebar.stats">
@@ -402,7 +335,7 @@
     <!-- }}} -->
   </div>
 
-  <div ng-class="{'col-md-9': enable.sidebar.show, 'col-md-12': !enable.sidebar.show }">
+  <div class="col-xs-12">
     <!-- {{{ downloads -->
     <!-- Bug?? <div ng-show="!totalAria2Downloads() && totalAria2Downloads() > getDownloads()" class="hero-unit">-->
     <div ng-show="!totalAria2Downloads()" class="jumbotron">
@@ -1151,8 +1084,84 @@ http://ex1.com/f2.mp4 http://ex2.com/f2.mp4 --out=file2.mp4
 </div>
 <!-- }}} -->
 
-<!-- Bottom Padding -->
-<br /><br /><br /><br /><br />
+
+<!-- external javascript dependencies -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/libs/lodash.js"></script>
+
+<script src="js/libs/angular.js"></script>
+
+<script src="js/libs/angularui-bootstrap.js"></script>
+
+
+<script src="js/libs/jquery.flot.js"></script>
+<script src="js/libs/jquery.flot.time.js"></script>
+
+<!-- We do manual resize currently
+<script src="js/libs/jquery.flot.resize.js"></script>
+-->
+
+<!-- webui core -->
+<script src="js/init.js"></script>
+<script src="configuration.js"></script>
+
+<script src="js/directives/chunkbar.js"></script>
+<script src="js/directives/dgraph.js"></script>
+<script src="js/directives/fselect.js"></script>
+
+<script src="js/filters/bytes.js"></script>
+<script src="js/filters/url.js"></script>
+
+<script src="js/services/deps.js"></script>
+<script src="js/services/base64.js"></script>
+<script src="js/services/utils.js"></script>
+
+<script src="js/services/modals.js"></script>
+<script src="js/services/alerts.js"></script>
+
+<script src="js/services/errors.js"></script>
+
+<script src="js/services/settings/settings.js"></script>
+<script src="js/services/settings/filters.js"></script>
+
+<script src="js/services/rpc/jsoncall.js"></script>
+<script src="js/services/rpc/sockcall.js"></script>
+<script src="js/services/rpc/syscall.js"></script>
+<script src="js/services/rpc/rpc.js"></script>
+<script src="js/services/rpc/helpers.js"></script>
+
+
+<script src="js/ctrls/main.js"></script>
+<script src="js/ctrls/modal.js"></script>
+<script src="js/ctrls/nav.js"></script>
+<script src="js/ctrls/alert.js"></script>
+<script src="js/ctrls/props.js"></script>
+
+
+<!-- translate -->
+<script src="js/libs/angular-translate.js"></script>
+<script src="js/translate/nl_NL.js"></script>
+<script src="js/translate/en_US.js"></script>
+<script src="js/translate/th_TH.js"></script>
+<script src="js/translate/zh_CN.js"></script>
+<script src="js/translate/pl_PL.js"></script>
+<script src="js/translate/fr_FR.js"></script>
+<script src="js/translate/de_DE.js"></script>
+<script src="js/translate/es_ES.js"></script>
+
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+
+<script src="js/LouisAria2.js"></script>
+
+<script>
+    var louisAria2 = null;
+
+    $(document).ready(function () {
+        louisAria2 = new LouisAria2();
+        louisAria2.init();
+    });
+</script>
 
 </body>
 </html>
