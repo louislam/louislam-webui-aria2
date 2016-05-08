@@ -111,9 +111,12 @@ function(
 				}
 			};
 
+			if (noConfirm) {
+				callback(true);
+			} else {
+				confirm2("Remove %s and associated meta-data?".replace("%s", d.name), callback);
+			}
 
-
-			confirm2("Remove %s and associated meta-data?".replace("%s", d.name), callback);
 
 		}, 0);
 	};
