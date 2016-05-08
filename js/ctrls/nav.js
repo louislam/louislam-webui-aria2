@@ -134,6 +134,7 @@ angular
 	};
 
 	scope.changeLanguage = function (langkey) {
+		console.log(123);
 		translate.use(langkey);
 	};
 

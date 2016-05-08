@@ -82,33 +82,41 @@ function(
 		// HACK to make sure an angular digest is not running, as only one can happen at a time, and confirm is a blocking
 		// call so an rpc response can also trigger a digest call
 		setTimeout(function() {
-			if (!noConfirm && !confirm("Remove %s and associated meta-data?".replace("%s", d.name))) {
-				return;
-			}
+			var callback = function (isConfirmed) {
 
-			var method = 'remove';
-
-			if (scope.getType(d) == 'stopped')
-				method = 'removeDownloadResult';
-
-			if (d.followedFrom) {
-				scope.remove(d.followedFrom, function() {}, true);
-				d.followedFrom = null;
-			}
-			rpc.once(method, [d.gid], cb);
-
-			var lists = [scope.active, scope.waiting, scope.stopped], ind = -1, i;
-			for (var i = 0; i < lists.length; ++i) {
-				var list = lists[i];
-				var idx = list.indexOf(d);
-				if (idx < 0) {
-					continue;
+				if (! isConfirmed) {
+					return;
 				}
-				list.splice(idx, 1);
-				return;
-			}
+
+				var method = 'remove';
+
+				if (scope.getType(d) == 'stopped')
+					method = 'removeDownloadResult';
+
+				if (d.followedFrom) {
+					scope.remove(d.followedFrom, function() {}, true);
+					d.followedFrom = null;
+				}
+				rpc.once(method, [d.gid], cb);
+
+				var lists = [scope.active, scope.waiting, scope.stopped], ind = -1, i;
+				for (var i = 0; i < lists.length; ++i) {
+					var list = lists[i];
+					var idx = list.indexOf(d);
+					if (idx < 0) {
+						continue;
+					}
+					list.splice(idx, 1);
+					return;
+				}
+			};
+
+
+
+			confirm2("Remove %s and associated meta-data?".replace("%s", d.name), callback);
+
 		}, 0);
-	}
+	};
 
 	// start filling in the model of active,
 	// waiting and stopped download

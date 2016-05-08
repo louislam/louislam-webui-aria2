@@ -30,13 +30,6 @@ input[type=checkbox], input[type=radio] {
   width: 40%;
 }
 
-.alert {
-  float: right;
-  clear: right;
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
-
 /* fix modal overflow on low resolutions */
 .modal {
   position: absolute;

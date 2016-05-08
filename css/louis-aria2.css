@@ -1,0 +1,39 @@
+.louis-aria2 a,
+.louis-aria2 a:focus,
+.louis-aria2 a:hover {
+  color: #2196F3;
+}
+.louis-aria2 .navbar-inverse.navbar-louis {
+  background-color: #306DEF;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.louis-aria2 .navbar-inverse.navbar-louis .navbar-collapse {
+  border-top: 0;
+}
+.louis-aria2 .download-name {
+  font-size: 19px;
+}
+.louis-aria2 .well,
+.louis-aria2 .container-fluid .well {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.louis-aria2 .alert-no-download {
+  color: black;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.louis-aria2 .alerts {
+  position: fixed;
+  right: 0;
+  z-index: 900;
+  width: 100%;
+  bottom: 0;
+}
+.louis-aria2 .alerts .alert {
+  margin-bottom: 0;
+}
+.louis-aria2 .footer {
+  padding: 20px;
+}
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
