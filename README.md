@@ -1,7 +1,7 @@
 Louis' Aria2
 ===========
 
-(Original: https://github.com/ziahamza/webui-aria2)
+(Fork from: https://github.com/ziahamza/webui-aria2)
 
 ### Live Demo ###
 http://app.louislam.net/aria2/
